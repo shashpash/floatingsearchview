@@ -105,7 +105,7 @@ public class DataHelper {
                 if (!(constraint == null || constraint.length() == 0)) {
 
                     for (ColorSuggestion suggestion : sColorSuggestions) {
-                        if (suggestion.getBody().toUpperCase()
+                        if (suggestion.getName().toUpperCase()
                                 .startsWith(constraint.toString().toUpperCase())) {
 
                             suggestionList.add(suggestion);

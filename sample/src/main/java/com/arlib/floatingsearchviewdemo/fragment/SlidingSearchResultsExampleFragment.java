@@ -108,7 +108,7 @@ public class SlidingSearchResultsExampleFragment extends BaseExampleFragment {
             public void onSuggestionClicked(final SearchSuggestion searchSuggestion) {
 
                 ColorSuggestion colorSuggestion = (ColorSuggestion) searchSuggestion;
-                DataHelper.findColors(getActivity(), colorSuggestion.getBody(),
+                DataHelper.findColors(getActivity(), colorSuggestion.getName(),
                         new DataHelper.OnFindColorsListener() {
 
                             @Override
@@ -119,7 +119,7 @@ public class SlidingSearchResultsExampleFragment extends BaseExampleFragment {
                         });
                 Log.d(TAG, "onSuggestionClicked()");
 
-                mLastQuery = searchSuggestion.getBody();
+                mLastQuery = searchSuggestion.getName();
             }
 
             @Override
@@ -156,7 +156,7 @@ public class SlidingSearchResultsExampleFragment extends BaseExampleFragment {
                 mSearchView.setSearchBarTitle(mLastQuery);
 
                 //you can also set setSearchText(...) to make keep the query there when not focused and when focus returns
-                //mSearchView.setSearchText(searchSuggestion.getBody());
+                //mSearchView.setSearchText(searchSuggestion.getName());
 
                 Log.d(TAG, "onFocusCleared()");
             }
@@ -234,7 +234,7 @@ public class SlidingSearchResultsExampleFragment extends BaseExampleFragment {
                 }
 
                 textView.setTextColor(Color.parseColor(textColor));
-                String text = colorSuggestion.getBody()
+                String text = colorSuggestion.getName()
                         .replaceFirst(mSearchView.getQuery(),
                                 "<font color=\"" + textLight + "\">" + mSearchView.getQuery() + "</font>");
                 textView.setText(Html.fromHtml(text));

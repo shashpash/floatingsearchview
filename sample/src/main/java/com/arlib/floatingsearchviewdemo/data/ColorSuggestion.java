@@ -43,8 +43,20 @@ public class ColorSuggestion implements SearchSuggestion {
     }
 
     @Override
-    public String getBody() {
+    public String getName() {
         return mColorName;
+    }
+
+    @Override public String getNickname() {
+        return null;
+    }
+
+    @Override public String getAvatar() {
+        return null;
+    }
+
+    @Override public boolean isVerified() {
+        return false;
     }
 
     public static final Creator<ColorSuggestion> CREATOR = new Creator<ColorSuggestion>() {
