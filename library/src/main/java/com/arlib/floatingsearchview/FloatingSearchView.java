@@ -77,6 +77,7 @@ import com.bartoszlipinski.viewpropertyobjectanimator.ViewPropertyObjectAnimator
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -1293,9 +1294,9 @@ public class FloatingSearchView extends FrameLayout {
 
                             mSkipTextChangeEvent = true;
                             if (mIsTitleSet) {
-                                setSearchBarTitle(item.getName());
+                                setSearchBarTitle(item.getBody());
                             } else {
-                                setSearchText(item.getName());
+                                setSearchText(item.getBody());
                             }
 
                             setSearchFocusedInternal(false);
@@ -1305,7 +1306,7 @@ public class FloatingSearchView extends FrameLayout {
                     @Override
                     public void onMoveItemToSearchClicked(SearchSuggestion item) {
 
-                        setQueryText(item.getName());
+                        setQueryText(item.getBody());
                     }
                 });
         refreshShowMoveUpSuggestion();

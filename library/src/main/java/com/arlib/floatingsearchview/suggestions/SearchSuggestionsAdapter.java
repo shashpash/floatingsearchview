@@ -68,11 +68,9 @@ public class SearchSuggestionsAdapter extends RecyclerView.Adapter<RecyclerView.
 
     public static class SearchSuggestionViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView name;
-        public TextView nickname;
+        public TextView body;
         public ImageView leftIcon;
         public ImageView rightIcon;
-        public ImageView verified;
 
         private Listener mListener;
 
@@ -87,11 +85,9 @@ public class SearchSuggestionsAdapter extends RecyclerView.Adapter<RecyclerView.
             super(v);
 
             mListener = listener;
-            name = (TextView) v.findViewById(R.id.name);
-            nickname = (TextView) v.findViewById(R.id.nickname);
+            body = (TextView) v.findViewById(R.id.body);
             leftIcon = (ImageView) v.findViewById(R.id.left_icon);
             rightIcon = (ImageView) v.findViewById(R.id.right_icon);
-            verified = (ImageView) v.findViewById(R.id.verified);
 
             rightIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -167,7 +163,7 @@ public class SearchSuggestionsAdapter extends RecyclerView.Adapter<RecyclerView.
                 });
 
         viewHolder.rightIcon.setImageDrawable(mRightIconDrawable);
-        viewHolder.name.setTextSize(TypedValue.COMPLEX_UNIT_PX, mBodyTextSizePx);
+        viewHolder.body.setTextSize(TypedValue.COMPLEX_UNIT_PX, mBodyTextSizePx);
 
         return viewHolder;
     }
@@ -186,13 +182,10 @@ public class SearchSuggestionsAdapter extends RecyclerView.Adapter<RecyclerView.
         }
 
         SearchSuggestion suggestionItem = mSearchSuggestions.get(position);
-        viewHolder.name.setText(suggestionItem.getName());
-        viewHolder.nickname.setText(suggestionItem.getNickname());
-        if (suggestionItem.isVerified()) viewHolder.verified.setVisibility(View.VISIBLE);
-        else viewHolder.verified.setVisibility(View.GONE);
+        viewHolder.body.setText(suggestionItem.getBody());
 
         if(mTextColor != -1){
-            viewHolder.name.setTextColor(mTextColor);
+            viewHolder.body.setTextColor(mTextColor);
         }
 
         if(mRightIconColor != -1){
@@ -200,7 +193,7 @@ public class SearchSuggestionsAdapter extends RecyclerView.Adapter<RecyclerView.
         }
 
         if (mOnBindSuggestionCallback != null) {
-            mOnBindSuggestionCallback.onBindSuggestion(viewHolder.itemView, viewHolder.leftIcon, viewHolder.name,
+            mOnBindSuggestionCallback.onBindSuggestion(viewHolder.itemView, viewHolder.leftIcon, viewHolder.body,
                     suggestionItem, position);
         }
     }
