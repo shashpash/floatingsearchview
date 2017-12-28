@@ -85,7 +85,7 @@ public class SearchSuggestionsAdapter extends RecyclerView.Adapter<RecyclerView.
             super(v);
 
             mListener = listener;
-            body = (TextView) v.findViewById(R.id.name);
+            body = (TextView) v.findViewById(R.id.search_suggestions_item_name);
             leftIcon = (ImageView) v.findViewById(R.id.left_icon);
             rightIcon = (ImageView) v.findViewById(R.id.right_icon);
 
