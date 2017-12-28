@@ -51,6 +51,7 @@
                 android:layout_marginStart="@dimen/search_bar_search_input_left_margin"
                 android:ellipsize="end"
                 android:gravity="start|center"
+
                 android:textSize="@dimen/suggestion_body_text_size"
                 tools:text="body" />
 
